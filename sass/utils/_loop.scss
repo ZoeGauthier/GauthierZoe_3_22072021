@@ -1,0 +1,18 @@
+
+
+@for $i from 1 through 4 {
+    #image_background_#{$i} {
+        background-image: url('../../images/restaurants/'+ $i + '.jpg');
+    }
+}
+
+$menu-items: 1, 2, 3 ,4, 5, 6, 7, 8, 9, 10;
+
+@each $item in $menu-items {
+  .small_box-#{$item} {
+    opacity: 0;
+    animation: fadein 1s;
+    animation-delay: #{($item)*400}ms;
+    animation-fill-mode: forwards;
+  }
+} 

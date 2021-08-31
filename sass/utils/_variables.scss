@@ -1,5 +1,17 @@
-$logo-font: 'Shrikhand',cursive;
-$main-font:'Roboto', sans-serif;
-$primary-color:#9356DC;
-$secondary-color:#FF79DA;
-$tertiary-color:#99E2D0;
+$color-primary: #9356dc;
+$color-secondary: #ff79da;
+$color-third: #99e2d0;
+$color-linear: linear-gradient(to top,#9356dc,#b35cdc,#cf64dc,#e86edb,#ff79da);
+$color-heart: linear-gradient(0deg, rgba(147,86,220,1) 23%, rgba(255,121,218,1) 100%);
+
+
+$font-family1: "Shrikhand";
+$font-family2: "Roboto";
+$font-family3: "Roboto-Black";
+$font-family4: "Roboto-Light";
+$font-family5: "Roboto-Bold";
+
+$box-shadow: 0px 2px 10px 1px #c4c4c4a8;
+$box-shadow-plus: 0px 2px 10px 1px #c4c4c4;
+
+$border-radius1: 15px 15px 15px 15px; 

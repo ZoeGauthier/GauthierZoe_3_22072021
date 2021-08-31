@@ -1,86 +1,381 @@
-/*mixin Logo*/
-@mixin logo
-{
-    font-family: $logo-font;
-    font-size: 1em;
-    line-height: 70px;
-    height: 70px;
-    text-align: center;
-    width: 100%;
-}
-/*mixin Réservez le menu*/
-@mixin reserv
-{
-    width: 60%;
-    flex-wrap: wrap;
-    font-family: $main-font;
-    text-align: center;
-}
-/*mixin button*/
-@mixin button
-{
-    width: 230px;
-    height: 45px;
-    border-radius: 25px;
-    background: linear-gradient(to top left, $primary-color, $secondary-color);
-    color: white;
-    font-family: $main-font;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 1px 7px grey;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
-}
-/*mixin partie restaurants*/
-@mixin layout
-{
-    width:95%;
-    margin: 10px auto;
-    font-family: $main-font;
-}
-/*mixin coeur transition*/
-@mixin heart_block
-{   width: 25px;
-    height: 25px;
-    position: absolute;
-}
-@mixin heart_transition
-{
-    display: block;
-    color:transparent;
-    background: linear-gradient(to right top, $secondary-color, $primary-color);
-    -webkit-background-clip: text;
-    background-clip:text;
-    opacity: 0;
-    transition: opacity, 1s ease-out 0.1s;
-}
-/*Footer*/
-@mixin footer
-{
-    width: 100%;
-    height: 200px;
-    background-color: #353535;
-    color: white;
-}
-@mixin footer_list
-{
-    list-style-type: none;
-    font-family: $main-font;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    padding: 0;
+// LOADER
 
+@mixin loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to top,
+    #9356dc,
+    #b35cdc,
+    #cf64dc,
+    #e86edb,
+    #ff79da
+  );
+  width: 100%;
+  height: 100%;
+  font-family: $font-family1;
+  font-size: 22px;
+  position: fixed;
+  z-index: 9999;
+  animation: loading 600ms ease-in-out 1000ms forwards;
+  pointer-events: none;
+  .loader__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .loader__title {
+      font-size: 50px;
+      animation: rotate 2s linear infinite;
+      @media #{$media-up} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+      }
+    }
+  }
 }
-@mixin footer_link
-{
+
+.gradient_text {
+  background-image: linear-gradient(to top, #8b46df, #7b16aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// TITLE H2
+
+@mixin h2 {
+  font-family: $font-family3;
+  font-size: 22px;
+  padding-left: 15px;
+  margin-top: 50px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+}
+
+// BUTTON EXPLORER
+
+@mixin button_explorer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: $font-family2;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 25px;
+  box-shadow: $box-shadow;
+  border: 0px;
+  background-image: linear-gradient(
+    to top,
+    #9356dc,
+    #b35cdc,
+    #cf64dc,
+    #e86edb,
+    #ff79da
+  );
+  color: white;
+  transform: scale(1);
+
+  cursor: pointer;
+  &:hover {
+    box-shadow: $box-shadow-plus;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  @media #{$media-up} {
+    font-size: 18px;
+  }
+}
+
+// FORM BUTTON
+
+@mixin form_button($width, $bgc, $br, $bs) {
+  display: flex;
+  width: $width;
+  font-family: $font-family2;
+
+  padding-left: 28px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  margin-left: 35px;
+  margin-bottom: 15px;
+
+  border-radius: $br;
+  box-shadow: $bs;
+
+  background-color: $bgc;
+
+  cursor: pointer;
+  &:hover {
+    box-shadow: $box-shadow-plus;
+    background-color: rgba(244, 235, 254);
+  }
+}
+
+// BTN IMAGE
+
+@mixin btn_image($width, $height, $br, $bs) {
+  width: $width;
+  height: $height;
+  margin-bottom: 15px;
+  border-radius: $br;
+  box-shadow: $bs;
+  transform: scale(1);
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  &:hover {
+    box-shadow: $box-shadow-plus;
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+  }
+  @media #{$media-up} {
+    height: 350px;
+    margin-bottom: 40px;
+  }
+
+  .btn_image__restaurant {
+    width: 100%;
+    height: 158px;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+    cursor: pointer;
+    @media #{$media-down} {
+      width: 100%;
+      height: 70%;
+    }
+  }
+
+  .btn_image__label {
+    padding-left: 10px;
+    .btn_image__label_1 {
+      font-family: $font-family3;
+      font-size: 17px;
+      @media #{$media-up} {
+        font-size: 22px;
+        padding-top: 15px;
+      }
+    }
+  }
+
+  .btn_image__logo {
+    position: absolute;
+    right: 25px;
+    bottom: 30px;
+    .btn_image__star {
+      color: rgb(102, 102, 102);
+      cursor: pointer;
+      @media #{$media-up} {
+        position: absolute;
+        right: 10px;
+        bottom: 22px;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  .btn_image__label_2 {
+    padding-top: 4px;
+    font-family: $font-family2;
+    color: gray;
+    font-size: 15px;
+    @media #{$media-up} {
+      font-size: 18px;
+      padding-top: 10px;
+    }
+  }
+}
+
+// BTN IMAGE STAR - ANIMATION
+
+@keyframes coeurBg {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(147, 86, 220, 1);
+  }
+}
+
+@mixin btn_image__star {
+  font-size: 25px;
+
+  .btn_image__star {
+    width: 40px;
+  }
+  .btn_image__star::before {
+    display: block;
+    width: 27px;
+    cursor: pointer;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: black;
+  }
+
+  .btn_image__star:hover::before {
+    font-weight: bold;
+    background-image: linear-gradient(
+      rgba(255, 121, 218, 1),
+      rgba(255, 255, 255, 0)
+    );
+    animation: coeurBg 1s ease;
+    -webkit-animation-fill-mode: forwards;
+  }
+}
+
+// MENU
+
+// SMALL BOX
+
+@mixin small_box {
+  position: relative;
+  height: 60px;
+  box-shadow: $box-shadow;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  &:hover {
+    box-shadow: $box-shadow-plus;
+  }
+  &:hover .small_box {
+    opacity: 1;
+  }
+  &:hover .fa-check-circle {
+    transform: rotate(360deg);
+  }
+}
+
+.small_box__a {
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  font-family: $font-family3;
+  font-size: 18px;
+  padding: 8px;
+  transition: width 0.4s ease-in-out;
+  .small_box__title {
+    font-family: $font-family3;
+    font-size: 16px;
+  }
+  .small_box__option {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    .small_box__label {
+      font-family: $font-family2;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+    .small_box__price {
+      padding-right: 10px;
+      font-size: 15px;
+    }
+  }
+}
+
+.small_box__b {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99e2d0;
+  width: 15%;
+  height: 60px;
+  font-size: 20px;
+  right: 0px;
+  margin-right: -66px;
+  transition: margin-right 0.4s ease-in-out;
+  i {
+    font-size: 26px;
+    color: #fff;
+    transition: transform 500ms ease-in-out;
+  }
+}
+
+.small_box:hover .small_box__b {
+  margin-right: 0;
+}
+.small_box:hover .small_box__a {
+  width: 85%;
+}
+
+// FOOTER
+
+@mixin footer {
+  height: 200px;
+  background-color: rgb(53, 53, 53);
+  a {
     color: white;
     text-decoration: none;
-}
-@mixin footer_title
-{
-    font-family: $logo-font;
-    font-size: 22px;
+
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  @media #{$media-up} {
+    height: auto;
+  }
+
+  .footer__box {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+  }
+
+  .footer__title {
+    font-size: 18px;
+    color: white;
+    font-family: $font-family1;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    @media #{$media-up} {
+      font-size: 24px;
+    }
+  }
+
+  .label_box {
+    display: flex;
+    color: white;
+    font-size: 13px;
+    font-family: $font-family2;
+    padding-left: 15px;
+    i {
+      width: 5%;
+    }
+    @media #{$media-up} {
+      font-size: 16px;
+      i {
+        width: 1%;
+      }
+    }
+  }
+
+  .link {
+    font-size: 12px;
+    font-family: $font-family2;
+    @media #{$media-up} {
+      font-size: 15px;
+    }
+  }
+
+  #label_contact {
+    font-family: $font-family2;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
 }
