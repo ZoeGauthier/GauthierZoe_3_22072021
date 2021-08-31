@@ -1,0 +1,637 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.gradient_text {
+  background-image: linear-gradient(to top, #8b46df, #7b16aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes coeurBg {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #9356dc;
+  }
+}
+.small_box__a {
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  font-family: "Roboto-Black";
+  font-size: 18px;
+  padding: 8px;
+  transition: width 0.4s ease-in-out;
+}
+.small_box__a .small_box__title {
+  font-family: "Roboto-Black";
+  font-size: 16px;
+}
+.small_box__a .small_box__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.small_box__a .small_box__option .small_box__label {
+  font-family: "Roboto";
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.small_box__a .small_box__option .small_box__price {
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+.small_box__b {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99e2d0;
+  width: 15%;
+  height: 60px;
+  font-size: 20px;
+  right: 0px;
+  margin-right: -66px;
+  transition: margin-right 0.4s ease-in-out;
+}
+.small_box__b i {
+  font-size: 26px;
+  color: #fff;
+  transition: transform 500ms ease-in-out;
+}
+
+.small_box:hover .small_box__b {
+  margin-right: 0;
+}
+
+.small_box:hover .small_box__a {
+  width: 85%;
+}
+
+#image_background_1 {
+  background-image: url("../../images/restaurants/1.jpg");
+}
+
+#image_background_2 {
+  background-image: url("../../images/restaurants/2.jpg");
+}
+
+#image_background_3 {
+  background-image: url("../../images/restaurants/3.jpg");
+}
+
+#image_background_4 {
+  background-image: url("../../images/restaurants/4.jpg");
+}
+
+.small_box-1 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 400ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-2 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 800ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-3 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 1200ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-4 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 1600ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-5 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 2000ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-6 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 2400ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-7 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 2800ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-8 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 3200ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-9 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 3600ms;
+  animation-fill-mode: forwards;
+}
+
+.small_box-10 {
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 4000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@font-face {
+  font-family: "Shrikhand";
+  src: url("../Police/Shrikhand-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../Police/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("../Police/Roboto-Black.ttf");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../Police/Roboto-Light.ttf");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../public/Police/Roboto-Bold.ttf");
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #9356dc, #b35cdc, #cf64dc, #e86edb, #ff79da);
+  width: 100%;
+  height: 100%;
+  font-family: "Shrikhand";
+  font-size: 22px;
+  position: fixed;
+  z-index: 9999;
+  animation: loading 600ms ease-in-out 1000ms forwards;
+  pointer-events: none;
+}
+.loader .loader__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader .loader__box .loader__title {
+  font-size: 50px;
+  animation: rotate 2s linear infinite;
+}
+@media only screen and (min-width: 1024px) {
+  .loader .loader__box .loader__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+  }
+}
+
+.box_title {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 70px;
+  border-bottom: 1px solid #c4bcbc;
+}
+.box_title h1 {
+  font-family: "Shrikhand";
+  height: 40px;
+  font-size: 30px;
+}
+
+.search_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  width: 100%;
+  height: 45px;
+}
+.search_box .search_box__icon {
+  margin-right: 10px;
+}
+.search_box .search_box__place_search {
+  width: 125px;
+  font-size: 16px;
+  font-weight: 900;
+  background-color: #eaeaea;
+  border: transparent;
+  outline: none;
+}
+
+.title_label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+.title_label .title_label__1 {
+  font-size: 22px;
+  font-family: "Roboto-Black";
+  margin-bottom: 5px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+@media only screen and (min-width: 1024px) {
+  .title_label .title_label__1 {
+    font-size: 26px;
+  }
+}
+.title_label .title_label__2 {
+  font-family: "Roboto-Light";
+  font-weight: lighter;
+  font-size: 16px;
+  padding-left: 28px;
+  padding-right: 28px;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  .title_label .title_label__2 {
+    font-size: 20px;
+  }
+}
+
+.title_label__button_explorer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Roboto";
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 25px;
+  box-shadow: 0px 2px 10px 1px #c4c4c4a8;
+  border: 0px;
+  background-image: linear-gradient(to top, #9356dc, #b35cdc, #cf64dc, #e86edb, #ff79da);
+  color: white;
+  transform: scale(1);
+  cursor: pointer;
+}
+.title_label__button_explorer:hover {
+  box-shadow: 0px 2px 10px 1px #c4c4c4;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+@media only screen and (min-width: 1024px) {
+  .title_label__button_explorer {
+    font-size: 18px;
+  }
+}
+
+h2 {
+  font-family: "Roboto-Black";
+  font-size: 22px;
+  padding-left: 15px;
+  margin-top: 50px;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+}
+
+.nav {
+  margin-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    padding-right: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 70%;
+  }
+}
+
+.form_button {
+  display: flex;
+  width: 82%;
+  font-family: "Roboto";
+  padding-left: 28px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin-left: 35px;
+  margin-bottom: 15px;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0px 2px 10px 1px #c4c4c4a8;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+.form_button:hover {
+  box-shadow: 0px 2px 10px 1px #c4c4c4;
+  background-color: #f4ebfe;
+}
+.form_button .form_button__number {
+  font-size: 14px;
+  background-color: #9356dc;
+  color: white;
+  border-radius: 75%;
+  padding: 5px 9px;
+  margin-left: -40px;
+  margin-right: 15px;
+}
+.form_button .form_button__logo {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.form_button .form_button__logo i {
+  color: gray;
+}
+.form_button .form_button__label {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 800;
+  padding-left: 20px;
+}
+@media only screen and (min-width: 375px) {
+  .form_button {
+    display: flex;
+    height: 70%;
+  }
+}
+
+.box {
+  background-color: #f6f6f6;
+  padding-top: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .box__restaurants {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.box__restaurants .box__title {
+  font-family: "Roboto-Black";
+  font-size: 22px;
+  padding-left: 15px;
+  margin-top: 50px;
+}
+@media screen and (min-width: 768px) {
+  .box__restaurants .box__title {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+}
+
+.line_1,
+.line_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (min-width: 1024px) {
+  .line_1,
+.line_2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.btn_image {
+  width: 85%;
+  height: 240px;
+  margin-bottom: 15px;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0px 2px 10px 1px #c4c4c4a8;
+  transform: scale(1);
+  font-size: 25px;
+}
+.btn_image a {
+  text-decoration: none;
+  color: black;
+}
+.btn_image:hover {
+  box-shadow: 0px 2px 10px 1px #c4c4c4;
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+@media only screen and (min-width: 1024px) {
+  .btn_image {
+    height: 350px;
+    margin-bottom: 40px;
+  }
+}
+.btn_image .btn_image__restaurant {
+  width: 100%;
+  height: 158px;
+  border-radius: 15px 15px 0 0;
+  object-fit: cover;
+  cursor: pointer;
+}
+@media only screen and (min-width: 375px) {
+  .btn_image .btn_image__restaurant {
+    width: 100%;
+    height: 70%;
+  }
+}
+.btn_image .btn_image__label {
+  padding-left: 10px;
+}
+.btn_image .btn_image__label .btn_image__label_1 {
+  font-family: "Roboto-Black";
+  font-size: 17px;
+}
+@media only screen and (min-width: 1024px) {
+  .btn_image .btn_image__label .btn_image__label_1 {
+    font-size: 22px;
+    padding-top: 15px;
+  }
+}
+.btn_image .btn_image__logo {
+  position: absolute;
+  right: 25px;
+  bottom: 30px;
+}
+.btn_image .btn_image__logo .btn_image__star {
+  color: #666666;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  .btn_image .btn_image__logo .btn_image__star {
+    position: absolute;
+    right: 10px;
+    bottom: 22px;
+    padding-left: 20px;
+  }
+}
+.btn_image .btn_image__label_2 {
+  padding-top: 4px;
+  font-family: "Roboto";
+  color: gray;
+  font-size: 15px;
+}
+@media only screen and (min-width: 1024px) {
+  .btn_image .btn_image__label_2 {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+}
+.btn_image .btn_image__star {
+  width: 40px;
+}
+.btn_image .btn_image__star::before {
+  display: block;
+  width: 27px;
+  cursor: pointer;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: black;
+}
+.btn_image .btn_image__star:hover::before {
+  font-weight: bold;
+  background-image: linear-gradient(#ff79da, rgba(255, 255, 255, 0));
+  animation: coeurBg 1s ease;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.footer {
+  height: 200px;
+  background-color: #353535;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer {
+    height: auto;
+  }
+}
+.footer .footer__box {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
+}
+.footer .footer__title {
+  font-size: 18px;
+  color: white;
+  font-family: "Shrikhand";
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer .footer__title {
+    font-size: 24px;
+  }
+}
+.footer .label_box {
+  display: flex;
+  color: white;
+  font-size: 13px;
+  font-family: "Roboto";
+  padding-left: 15px;
+}
+.footer .label_box i {
+  width: 5%;
+}
+@media only screen and (min-width: 1024px) {
+  .footer .label_box {
+    font-size: 16px;
+  }
+  .footer .label_box i {
+    width: 1%;
+  }
+}
+.footer .link {
+  font-size: 12px;
+  font-family: "Roboto";
+}
+@media only screen and (min-width: 1024px) {
+  .footer .link {
+    font-size: 15px;
+  }
+}
+.footer #label_contact {
+  font-family: "Roboto";
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
